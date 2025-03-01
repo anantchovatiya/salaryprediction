@@ -1,0 +1,6 @@
+requirements = """
+flask
+numpy
+scikit-learn
+pickle-mixin
+"""
