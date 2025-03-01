@@ -4,7 +4,15 @@ import pickle
 import numpy as np
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000"])
+CORS(app)  # Enable CORS globally
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    return response
+
 
 model = pickle.load(open("salary_model.pkl", "rb"))
 mlb = pickle.load(open("mlb.pkl", "rb"))
