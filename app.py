@@ -32,4 +32,7 @@ def predict():
     return jsonify({'predicted_salary': round(predicted_salary, 2)})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get('PORT', 5000))  # ✅ Use dynamic port from Render
+    app.run(host='0.0.0.0', port=port, debug=True)
+
