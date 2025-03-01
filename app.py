@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS globally
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.after_request
 def add_cors_headers(response):
