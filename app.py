@@ -8,6 +8,13 @@ scaler = pickle.load(open('scaler.pkl', 'rb'))
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return """
+    <h1>Welcome to the Salary Prediction API</h1>
+    <p>Use the /predict endpoint to get salary predictions based on skills and experience.</p>
+    """
+
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
