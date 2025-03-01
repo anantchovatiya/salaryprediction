@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import pickle
 import numpy as np
 from flask_cors import CORS
-
+import os
 
 model = pickle.load(open('salary_model.pkl', 'rb'))
 mlb = pickle.load(open('mlb.pkl', 'rb'))
