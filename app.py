@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all origins
+CORS(app, origins=["http://localhost:3000"])
 
 model = pickle.load(open("salary_model.pkl", "rb"))
 mlb = pickle.load(open("mlb.pkl", "rb"))
